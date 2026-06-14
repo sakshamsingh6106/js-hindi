@@ -1,4 +1,3 @@
-let num="33a"
-let temp=Number(num)
-console.log(temp) 
-console.log(typeof temp) 
+let temp=new String('value');
+console.log(temp.__proto__);
+// console.log(typeof temp);
