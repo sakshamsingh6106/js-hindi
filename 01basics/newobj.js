@@ -1,5 +1,7 @@
-const valu={};
-valu.greet={
-    name: "saksham",
+let a=300;
+if(true){
+    let a=50;
+    console.log(this);
 }
-console.log(valu);
+console.log(a);
+console.log(this);
