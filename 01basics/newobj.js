@@ -1,7 +1,4 @@
-let a=300;
-if(true){
-    let a=50;
-    console.log(this);
-}
-console.log(a);
-console.log(this);
+console.log(b);
+var b=89;
+let c;
+console.log(c);
