@@ -50,5 +50,7 @@ reset.addEventListener("click", function() {
     guessSlot.innerHTML=""
     submit.disabled = false;
     userInput.disabled=false;
+    userInput.value = '';
+    lowOrHi.innerHTML="";
     randomNumber = Math.floor(Math.random() * 100 + 1);
 });
