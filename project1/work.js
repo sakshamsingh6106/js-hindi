@@ -11,7 +11,6 @@ submit.addEventListener('click', function (e) {
     const guess = parseInt(userInput.value); 
     if(value<=1){
        lowOrHi.innerHTML=`game over the guess value was:  ${randomNumber}: press reset to play again`
-       reset.style.display = "inline";
        remaining.innerHTML=`0`;
        guessSlot.innerHTML += `${guess}, `;
        submit.disabled=true;
@@ -24,7 +23,6 @@ submit.addEventListener('click', function (e) {
         value--;
         if(guess===randomNumber){
             lowOrHi.innerHTML="YOU GUESSED IT RIGHT:  press reset button to play again";
-             reset.style.display = "inline";
              submit.disabled=true;
         }
         else{
@@ -49,6 +47,5 @@ reset.addEventListener("click", function() {
     remaining.innerHTML=`${value}`;
     guessSlot.innerHTML=""
     submit.disabled = false;
-    reset.style.display = "none";
     randomNumber = Math.floor(Math.random() * 100 + 1);
 });
