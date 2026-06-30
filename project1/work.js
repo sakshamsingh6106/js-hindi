@@ -9,13 +9,15 @@ const reset = document.getElementById("reset");
 submit.addEventListener('click', function (e) {
     e.preventDefault();
     const guess = parseInt(userInput.value); 
-    if(value<1){
+    if(value<=1){
        lowOrHi.innerHTML=`game over the guess value was:  ${randomNumber}: press reset to play again`
        reset.style.display = "inline";
+       remaining.innerHTML=`0`;
+       guessSlot.innerHTML += `${guess}, `;
        submit.disabled=true;
     }
     else{
-    if(guess===''|| guess<1 || guess>100){
+    if(isNaN(guess)|| guess<1 || guess>100||guess==''){
         alert('PLease enter a valid number');
     }
     else{
