@@ -14,6 +14,7 @@ submit.addEventListener('click', function (e) {
        remaining.innerHTML=`0`;
        guessSlot.innerHTML += `${guess}, `;
        submit.disabled=true;
+       userInput.disabled=true;
     }
     else{
     if(isNaN(guess)|| guess<1 || guess>100||guess==''){
@@ -24,6 +25,7 @@ submit.addEventListener('click', function (e) {
         if(guess===randomNumber){
             lowOrHi.innerHTML="YOU GUESSED IT RIGHT:  press reset button to play again";
              submit.disabled=true;
+             userInput.disabled=true;
         }
         else{
           remaining.innerHTML=`${value}`;
@@ -47,5 +49,6 @@ reset.addEventListener("click", function() {
     remaining.innerHTML=`${value}`;
     guessSlot.innerHTML=""
     submit.disabled = false;
+    userInput.disabled=false;
     randomNumber = Math.floor(Math.random() * 100 + 1);
 });
