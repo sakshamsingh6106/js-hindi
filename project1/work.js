@@ -10,11 +10,18 @@ submit.addEventListener('click', function (e) {
     e.preventDefault();
     const guess = parseInt(userInput.value); 
     if(value<=1){
-       lowOrHi.innerHTML=`game over the guess value was:  ${randomNumber}: press reset to play again`
+        if(guess===randomNumber){
+            lowOrHi.innerHTML="YOU GUESSED IT RIGHT:  press reset button to play again";
+             submit.disabled=true;
+             userInput.disabled=true;
+        }
+        else{
+       lowOrHi.innerHTML=`game over the guess value was:  ${randomNumber}: press reset to play again`;
        remaining.innerHTML=`0`;
        guessSlot.innerHTML += `${guess}, `;
        submit.disabled=true;
        userInput.disabled=true;
+    }
     }
     else{
     if(isNaN(guess)|| guess<1 || guess>100||guess==''){
