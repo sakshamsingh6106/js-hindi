@@ -9,7 +9,8 @@ const reset = document.getElementById("reset");
 submit.addEventListener('click', function (e) {
     e.preventDefault();
     const guess = parseInt(userInput.value); 
-    if(value<=1){
+       value--;
+    if(value<1){
         if(guess===randomNumber){
             lowOrHi.innerHTML="YOU GUESSED IT RIGHT:  press reset button to play again";
              submit.disabled=true;
@@ -28,7 +29,7 @@ submit.addEventListener('click', function (e) {
         alert('PLease enter a valid number');
     }
     else{
-        value--;
+     
         if(guess===randomNumber){
             lowOrHi.innerHTML="YOU GUESSED IT RIGHT:  press reset button to play again";
              submit.disabled=true;
