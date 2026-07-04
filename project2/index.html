@@ -12,7 +12,7 @@
             0
         </div>
         <button id="start">start</button>
-        <button id="stop">stop</button>
+        <button id="stop">pause</button>
         <button id="reset">stop and reset</button>
     </div>
 </body>
@@ -25,7 +25,7 @@
             return;
         }
         else{timerstart=setInterval(function(){
-        change.innerHTML=`${value}`;
+        change.innerHTML=`nigga ${value}`;
         value++;
         },500)}   
     })
@@ -37,9 +37,9 @@
         if(timerstart!==null){
         clearInterval(timerstart);
         timerstart=null;
+        }
         change.innerHTML="0";
         value=1;
-        }
         
     })
 
