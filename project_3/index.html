@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>background changer</title>
+  </head>
+  <body style="background-color: #212121; color: #fff">
+
+    <h1>Start should change the Background color every second</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">reset</button>
+    <script>
+        let background=document.body;
+        let bgcgen=function(){
+           let hex = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+           let bgcval="#";
+           for(let i=1;i<=6;i++){
+            bgcval+=hex[Math.floor(Math.random()*16)]
+           }
+           return bgcval;
+        }
+        let bgcchange=null;
+        document.querySelector("#start").addEventListener('click',function(){
+            if(bgcchange!==null){
+                return;
+            }
+            else{
+                bgcchange=setInterval(function(){
+                let temp=bgcgen();
+                background.style.backgroundColor=`${temp}`;
+                },1000)
+            }
+        })
+        document.querySelector("#stop").addEventListener('click',function(){
+            if(bgcchange!==null){
+                clearInterval(bgcchange);
+                bgcchange=null;
+            }
+        })
+        document.querySelector("#reset").addEventListener('click',function(){
+            if(bgcchange!==null){
+                clearInterval(bgcchange);
+                bgcchange=null;
+            }
+            background.style.backgroundColor="#212121";
+        })
+    </script>
+  </body>
+
+</html>
