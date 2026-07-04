@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>timer below in seconds</h1>
+        <div id="display">
+            0
+        </div>
+        <button id="start">start</button>
+        <button id="stop">stop</button>
+        <button id="reset">stop and reset</button>
+    </div>
+</body>
+<script>
+    let timerstart=null;
+    let value=1;
+    let change=document.querySelector("#display");
+    document.querySelector("#start").addEventListener('click',function(){
+        if(timerstart!==null){
+            return;
+        }
+        else{timerstart=setInterval(function(){
+        change.innerHTML=`${value}`;
+        value++;
+        },500)}   
+    })
+    document.querySelector("#stop").addEventListener('click',function(){
+        if(timerstart!==null){ clearInterval(timerstart);
+        timerstart=null;}
+    })
+    document.querySelector("#reset").addEventListener('click',function(){
+        if(timerstart!==null){
+        clearInterval(timerstart);
+        timerstart=null;
+        change.innerHTML="0";
+        value=1;
+        }
+        
+    })
+
+</script>
+</html>
