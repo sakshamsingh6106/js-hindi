@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color:aliceblue;">
+    0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete
+<div>
+<button id="click">click</button>
+<div id="insert"></div>
+</div>
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    let dat; 
+    const xhr = new XMLHttpRequest();
+    xhr.responseType='json';
+    console.log(xhr.readyState);
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState==4){
+            dat=xhr.response;
+        }
+    }
+    xhr.open('GET', requestUrl)
+    xhr.send();
+    const tar=document.querySelector("#insert");
+    document.querySelector("#click").addEventListener("click",function(e){
+        tar.innerHTML=`<img src=${dat.avatar_url} alt="no pic"><br/> <p>${dat.followers}</p>`
+    })
+
+</script>
+</html>
