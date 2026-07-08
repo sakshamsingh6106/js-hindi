@@ -38,14 +38,19 @@
 // }
 // consumeprom();
 
-const consumefetch=async function (para) {
-    try {
-        const response=await fetch(para);
-        const data=await response.json();
-        return data;
-    } catch (error) {
-        console.log(error);
-    }
+// const consumefetch=async function (para) {
+//     try {
+//         const response=await fetch(para);
+//         const data=await response.json();
+//         console.log(data)
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+// consumefetch('https://api.github.com/users/hiteshchoudhary');
+async function getNumber() {
+  return 42;
 }
-const temp=consumefetch('https://api.github.com/users/hiteshchoudhary');
-console.log(temp)
+
+let result = getNumber();
+console.log(result);
