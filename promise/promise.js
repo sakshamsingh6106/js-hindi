@@ -1,14 +1,14 @@
-const prom=new Promise(function(resolve,reject){
-    setTimeout(() => {
-        let error=true;
-        if(error==false){
-            resolve({name: "saksham", passwoed: "12345"})
-        }
-        else{
-            reject("yo your program buggin and u thuggin")
-        }
-    }, 1000)
-})
+// const prom=new Promise(function(resolve,reject){
+//     setTimeout(() => {
+//         let error=true;
+//         if(error==false){
+//             resolve({name: "saksham", passwoed: "12345"})
+//         }
+//         else{
+//             reject("yo your program buggin and u thuggin")
+//         }
+//     }, 1000)
+// })
 // let ret=prom
 // .then(function(user){
 //     return user.name;
@@ -28,12 +28,24 @@ const prom=new Promise(function(resolve,reject){
 //     console.log(data);
 // })
 // .catch((error) => console.log(error))
-const consumeprom=async function() {
+// const consumeprom=async function() {
+//     try {
+//         const response=await prom;
+//         console.log(response);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+// consumeprom();
+
+const consumefetch=async function (para) {
     try {
-        const response=await prom;
-        console.log(response);
+        const response=await fetch(para);
+        const data=await response.json();
+        return data;
     } catch (error) {
         console.log(error);
     }
 }
-consumeprom();
+const temp=consumefetch('https://api.github.com/users/hiteshchoudhary');
+console.log(temp)
